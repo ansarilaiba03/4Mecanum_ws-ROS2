@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="mecanum" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Start GZ or Ignition depending on ROS 2 Version -->
+  <xacro:arg name="is_ignition" default="true"/>
+
+  <!-- Include Gazebo Parameters -->
+  <xacro:include filename="$(find mecanum_description)/urdf/mecanum_gazebo.xacro" />
+
+  <!-- Include ros2_control Plugins -->
+  <xacro:include filename="$(find mecanum_description)/urdf/mecanum_ros2_control.xacro" />
+  
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0616334610597296 0.00110842254876253 0.396481943080363"
+        rpy="0 0 0" />
+      <mass
+        value="16.9237038037291" />
+      <inertia
+        ixx="1.08449874890246"
+        ixy="-0.00507655317829169"
+        ixz="0.0598804895774057"
+        iyy="0.933080722024735"
+        iyz="-0.000937039801494229"
+        izz="0.639733622062268" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Wheel_fl">
+    <inertial>
+      <origin
+        xyz="-2.41376196257193E-05 0.0309060188745294 2.28944267885028E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.649312860978082" />
+      <inertia
+        ixx="0.000306048492548317"
+        ixy="1.00770672573299E-07"
+        ixz="6.50863660664654E-08"
+        iyy="0.000496595115255053"
+        iyz="-1.35879172422985E-07"
+        izz="0.00030607147244671" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description/meshes/Wheel_fl.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description/meshes/Wheel_fl.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Wheel_fl_joint"
+    type="continuous">
+    <origin
+      xyz="0.21441 0.2814 0.019"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Wheel_fl" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="Wheel_fr">
+    <inertial>
+      <origin
+        xyz="3.30178515568491E-05 -0.0310139812068648 4.07482772006584E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.649311866313009" />
+      <inertia
+        ixx="0.000305995967646764"
+        ixy="-1.68948959184498E-07"
+        ixz="-2.37438743392751E-08"
+        iyy="0.000496590628121242"
+        iyz="8.60971405739951E-09"
+        izz="0.00030611932861977" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description/meshes/Wheel_fr.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description/meshes/Wheel_fr.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Wheel_fr_joint"
+    type="continuous">
+    <origin
+      xyz="0.21441 -0.2814 0.019021"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Wheel_fr" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="Wheel_rl">
+    <inertial>
+      <origin
+        xyz="3.27355853242395E-05 0.031013981206959 -5.92994961685911E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.649311866313009" />
+      <inertia
+        ixx="0.000305999032956135"
+        ixy="1.69165640390471E-07"
+        ixz="3.05371083078706E-08"
+        iyy="0.000496590628121307"
+        iyz="-9.29546124693673E-10"
+        izz="0.000306116263310587" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description/meshes/Wheel_rl.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description/meshes/Wheel_rl.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Wheel_rl_joint"
+    type="continuous">
+    <origin
+      xyz="-0.21059 0.2814 0.019"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Wheel_rl" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="Wheel_rr">
+    <inertial>
+      <origin
+        xyz="-9.36709482246556E-06 -0.0310139811254606 3.19223588298723E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.649312860978082" />
+      <inertia
+        ixx="0.00030611084150422"
+        ixy="1.88590063239517E-08"
+        ixz="4.22091864368747E-08"
+        iyy="0.000496595115255078"
+        iyz="-1.6811369912309E-07"
+        izz="0.000306009123490886" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description/meshes/Wheel_rr.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description/meshes/Wheel_rr.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Wheel_rr_joint"
+    type="continuous">
+    <origin
+      xyz="-0.21059 -0.2814 0.019"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Wheel_rr" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  
+</robot>
