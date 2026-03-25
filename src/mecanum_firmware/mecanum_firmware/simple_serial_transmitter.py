@@ -13,12 +13,11 @@ class SimpleSerialTransmitter(Node):
 
         self.port_ = self.get_parameter("port").value
         self.baudrate_ = self.get_parameter("baudrate").value
-        self.arduino_ = serial.Serial()
-
+        self.arduino_ = serial.Serial(port=self.port_, baudrate=self.baudrate_, timeout=0.1)
         self.sub_ = self.create_subscription(String, "serial_transmitter", self.msgCallback, 10)
 
     def msgCallback(self, msg):
-        self.get_logger().info("I heard: %s" % msg.data)
+        self.arduino_.write(msg.data.encode("utf-8"))
 
 def main():
     rclpy.init()
