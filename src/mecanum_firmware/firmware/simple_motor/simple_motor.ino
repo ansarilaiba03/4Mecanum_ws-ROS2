@@ -34,8 +34,8 @@ void loop() {
     cmd = Serial.readString().toDouble();
   }
 
-  analogWrite(FRONT_RIGHT_PWM_CHANNEL, 50);
-  analogWrite(FRONT_LEFT_PWM_CHANNEL, 50);
-  analogWrite(BACK_RIGHT_PWM_CHANNEL, 50);
-  analogWrite(BACK_LEFT_PWM_CHANNEL, 50);
+  analogWrite(FRONT_RIGHT_PWM_CHANNEL, cmd*100);
+  analogWrite(FRONT_LEFT_PWM_CHANNEL, cmd*100);
+  analogWrite(BACK_RIGHT_PWM_CHANNEL, cmd*100);
+  analogWrite(BACK_LEFT_PWM_CHANNEL, cmd*100);
 }

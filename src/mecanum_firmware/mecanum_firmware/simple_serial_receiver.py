@@ -12,7 +12,7 @@ class SimpleSerialReceiver(Node):
         self.frequency_ = 0.01
         self.get_logger().info("Publishing at %d Hz" % self.frequency_)
 
-        self.declare_parameter("port", "/dev/ttyACM0")
+        self.declare_parameter("port", "/dev/ttyUSB0")
         self.declare_parameter("baudrate", 115200)
         self.port_ = self.get_parameter("port").value
         self.baudrate_ = self.get_parameter("baudrate").value
