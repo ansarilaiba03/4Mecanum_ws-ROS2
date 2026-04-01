@@ -13,7 +13,7 @@ def generate_launch_description():
     mecanum_description_dir = get_package_share_directory("mecanum_description")
 
     model_arg = DeclareLaunchArgument(name="model", default_value=os.path.join(
-                                        mecanum_description_dir, "urdf", "mecanum.urdf.xacro"
+                                        mecanum_description_dir, "urdf", "mec_rob.xacro"
                                         ),
                                       description="Absolute path to robot urdf file")
 

@@ -14,7 +14,10 @@
 
   <!-- Include ros2_control Plugins -->
   <xacro:include filename="$(find mecanum_description)/urdf/mecanum_ros2_control.xacro" />
-  
+    <xacro:property name="wheel_radius" value="0.075" />
+  <xacro:property name="wheel_width" value="0.045" />
+
+  <xacro:property name="PI" value="3.1415926535897931" />
   <link
     name="base_link">
     <inertial>
@@ -86,12 +89,8 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://mecanum_description/meshes/Wheel_fl.STL" />
+        <sphere radius="${wheel_radius}"/>
       </geometry>
     </collision>
   </link>
@@ -139,12 +138,8 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://mecanum_description/meshes/Wheel_fr.STL" />
+        <sphere radius="${wheel_radius}"/>
       </geometry>
     </collision>
   </link>
@@ -159,7 +154,7 @@
     <child
       link="Wheel_fr" />
     <axis
-      xyz="0 -1 0" />
+      xyz="0 1 0" />
   </joint>
   <link
     name="Wheel_rl">
@@ -192,12 +187,8 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://mecanum_description/meshes/Wheel_rl.STL" />
+        <sphere radius="${wheel_radius}"/>
       </geometry>
     </collision>
   </link>
@@ -245,12 +236,8 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://mecanum_description/meshes/Wheel_rr.STL" />
+        <sphere radius="${wheel_radius}"/>
       </geometry>
     </collision>
   </link>

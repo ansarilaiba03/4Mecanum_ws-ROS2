@@ -1,0 +1,306 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mecanum">
+
+    <ros2_control name="RobotSystem" type="system">
+
+         <!-- ros2_control Gazebo -->
+        <xacro:if value="$(arg is_sim)">
+            <!-- ROS 2 Humble -->
+            <xacro:if value="$(arg is_ignition)">
+                <hardware>
+                    <plugin>ign_ros2_control/IgnitionSystem</plugin>
+                </hardware>
+            </xacro:if>
+
+            <!-- ROS 2 Iron or above -->
+            <xacro:unless value="$(arg is_ignition)">
+                <hardware>
+                    <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+                </hardware>
+            </xacro:unless>
+        </xacro:if>
+
+        <!-- ros2_control Real Robot -->
+        <xacro:unless value="$(arg is_sim)">
+            <hardware>
+                <plugin>mecanum_firmware/MecanumInterface</plugin>
+                <param name="port">/dev/ttyUSB0</param>
+            </hardware>
+        </xacro:unless>
+        
+        <!-- ros2_control Common Interfaces -->
+        <joint name="front_left_joint">
+            <command_interface name="velocity">
+              <param name="min">-100</param>
+              <param name="max">100</param>
+            </command_interface>
+            <state_interface name="position" />
+            <state_interface name="velocity" />
+        </joint>
+
+        <joint name="front_right_joint">
+            <command_interface name="velocity">
+              <param name="min">-100</param>
+              <param name="max">100</param>
+            </command_interface>
+            <state_interface name="position" />
+            <state_interface name="velocity" />
+        </joint>
+
+        <joint name="back_left_joint">
+            <command_interface name="velocity">
+              <param name="min">-100</param>
+              <param name="max">100</param>
+            </command_interface>
+            <state_interface name="position" />
+            <state_interface name="velocity" />
+        </joint>
+
+        <joint name="back_right_joint">
+            <command_interface name="velocity">
+              <param name="min">-100</param>
+              <param name="max">100</param>
+            </command_interface>
+            <state_interface name="position" />
+            <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_57">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_58">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_59">
+        <command_interface name="effort"> 
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_60">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_61">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_62">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_63">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_64">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_65">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_66">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_67">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_68">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_69">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_70">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_71">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_72">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_73">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_74">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_75">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_76">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_77">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_78">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_79">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_80">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_81">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_82">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_83">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_84">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_85">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_86">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_87">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_88">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_89">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_90">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_91">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_92">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_93">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_94">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        <joint name="Revolute_95">
+        <command_interface name="effort">
+          </command_interface>
+          <state_interface name="position" />
+          <state_interface name="velocity" />
+        </joint>
+        
+
+        
+    </ros2_control>
+
+</robot>
